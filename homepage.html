@@ -1,55 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <title>Home Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="style.css">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style>
-            body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            }
-    
-            .topnav {
-            overflow: hidden;
-            background-color: #333;
-            }
-    
-            .topnav a {
-            float: left;
-            color: #f2f2f2;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 17px;
-            }
-    
-            .topnav a:hover {
-            background-color: #ddd;
-            color: black;
-            }
-    
-            .topnav a.active {
-            background-color: #04AA6D;
-            color: white;
-            }
-        </style>
-    </head>
-<body>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-<!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
-  <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
-  <li class="w3-bar-item w3-button">Nama: Atmaja_19</li>
-  <li class="w3-bar-item w3-button">Email: atmaja_19@gmail.com</li>
-  <a href="profil.html" class="w3-bar-item w3-button"><i>Cek Profile</i></a>
+<body>
+  <!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none; background-color: #04AA6D;" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large w3-button" style="background-color: red;;">Close &times;</button>
+  <div>
+    <img style="width: 100px; margin-left: 45px; margin-top: 10px;" src="Lord.png">
+    <hr>
+    <li class="w3-bar-item ">Nama: UserName</li>
+    <li class="w3-bar-item ">Email: UserName@gmail.com</li>
+  </div>
+  <hr>
+  <a href="profil.html" class="w3-bar-item w3-button" style="background-color: #4abe4d;"><b>Cek Profile</b></a>
 </div>
 
 <!-- Page Content -->
 <div class="w3-teal">
   <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-  <br>Atmaja_19
+  <p id="email" style="display: inline;">Disini Email Boss</p>
   <div class="w3-container">
     <div class="topnav">
         <a class="active" href="homepage.html">Home</a>
@@ -58,10 +38,8 @@
     </div>
   </div>
 </div>
-<div style="padding-left:16px">
-    <h1>Halaman Home</h1>
-</div>
-<div style="text-align:center;">
+
+<div style="text-align:center; padding-top: 12px;">
     <input type="image" src="logo.png" style width="230" height="200" />
     <h1>LORD_CRYPTO<sup><i>currency</i></sup></h1>
 </div>
@@ -75,6 +53,55 @@ function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
 }
 </script>
-     
+  <div style="padding: 20px;">
+    <p><b>Update data dalam: <span id="timer">0</span> Detik</b></p>
+    <input type="text" value="" id="tes">
+    <button id="cari" style="width: auto; height: auto;">Cari</button>
+    <br>
+  </div>
+  <div class="grid-container" >
+  <div class="item" >
+    <table id="coins">
+      <tr>
+        <th>Pairs</th>
+        <th>Harga</th>
+        <th>Beli</th>
+        <th>jual</th>
+        <th>Tertinggi 24h</th>
+        <th>Terendah 24h</th>
+      </tr>
+    </table>
+  </div>
+  <div class="item" >
+    <div class="grid-container">
+      <div class="itemk" >
+        <img id="icon" src="https://indodax.com/v2/logo/png/color/btc.png" style="width: 100px; height: auto;">
+        <table id="passing">
+          <tr id="saya" onclick='exfun(id)' style="cursor: pointer;">
+            <th>Pairs</th>
+            <th>Harga</th>
+            <th>Beli</th>
+          </tr>
+        </table>
+      </div>
+      <div class="itemk" id="tulisan">
+        <h1>Judul</h1>
+        <h3 >Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Quo veritatis quas fuga a natus! Harum illum dignissimos ad 
+          libero, ex corporis in ratione voluptates cupiditate temporibus 
+          sed quidem? Ratione, at.</h3>
+      </div>
+      <div class="itemk" id="BuySell" >
+        <button style="float: right;">Sell</button>
+        <span>&nbsp</span>
+        <button style="float: right;">Beli</button>
+      </div>
+    </div>
+    </div>
+  </div>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
 </body>
-</html> 
+</html>
