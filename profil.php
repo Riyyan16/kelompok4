@@ -53,14 +53,7 @@
     </p>
     
     </div>
-  </div>
-  <div class="rightcolumn">
-    <div class="card">
-      <h2>Riwayat Pembelian</h2>
-      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-    </div>
-  </div>
-</div>
+  
 
 <div class="footer">
     <img src="https://img.freepik.com/free-vector/hand-drawn-cryptocurrency-mining-set-doodle-background_140689-82.jpg?size=626&ext=jpg" alt="" style="width: 20%;" height="100px">
