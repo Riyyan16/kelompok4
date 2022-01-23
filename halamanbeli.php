@@ -92,13 +92,6 @@
           sed quidem? Ratione, at.</h3>
       </div>
     </div>
-    <form method="post">
-      <input id="tanggal" type="text" name="tanggal" hidden>
-      <input id="jumlah" type="text" name="jumlah" hidden>
-      <input id="harga" type="text" name="harga" hidden>
-      <input id="koin" type="text" name="koin" hidden>
-      <button type="submit" name="submit">tes</button>
-    </form>
   </center>
   
 
