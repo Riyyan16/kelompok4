@@ -1,14 +1,10 @@
 <?php
-  
   require 'database.php';
-  
-  $data1 = query("SELECT * from karyawan");
-  foreach ($data1 as $item) { 
-    if("Yusril Albi"==$item['name'])
-      $x = $item;
-    }
-
-  
+  $bring = query("SELECT * from user");
+  $data=0;
+  $data = take($bring);
+  if($data==0)
+    echo "<script>location.href='index.php' </script>"
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,16 +40,34 @@
             width="auto" height="200px" style="float:left">
         </div>
         <div style="margin-left: 210px;">
-          <h3 >Username &nbsp;: <span id="username"><?= $x['name'] ?></span></h3>
-          <h3 >Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="email"></span><?= $x['email'] ?></h3>
+          <h3 >Username &nbsp;: <span id="username"><?= $data['username'] ?></span></h3>
+          <h3 >Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="email"></span><?= $data['email'] ?></h3>
           <h3 >Phone &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span id="Phone"></span>081234567890</h3>
-          <h2 style="text-align: right; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">Saldo</h2>
+          <br><br><br><br> 
           <?= debug_to_console("tes") ?>
         </div>
     </p>
     
     </div>
-  
+  </div>
+  <div class="rightcolumn">
+    <div class="card" style="overflow:scroll; height:600px;">
+      <h2>Riwayat Pembelian</h2>
+      <?php
+          $ambil = query("SELECT * FROM riwayat");
+          $tes = array();
+          foreach($ambil as $item){
+            if($item['email']==$data['email'])
+              $tes[] = $item;
+          }
+          for ($i = 0; $i < count($tes); $i++){
+              echo "<p> <b>Order koin</b> " .$tes[$i]['koin']. " Pada Tanggal " .$tes[$i]['tanggal']. "<br>Sebanyak = " 
+              .$tes[$i]['jumlah']. " Berhasil dengan Harga " .$tes[$i]['harga']. "</p>";
+          }
+      ?>
+    </div>
+  </div>
+</div>
 
 <div class="footer">
     <img src="https://img.freepik.com/free-vector/hand-drawn-cryptocurrency-mining-set-doodle-background_140689-82.jpg?size=626&ext=jpg" alt="" style="width: 20%;" height="100px">

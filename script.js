@@ -333,8 +333,13 @@ function passingByFind(data){
 }
 function myFunction() {
   let text = "Press a button!\nEither OK or Cancel.";
+
   if ((confirm(text) == true)) 
-    open("detail.php","_self")
+    location.href="detail.php"
+  else{
+    localStorage.setItem('cancel', 'true' );
+    location.href="halamanbeli.php"
+  }
   }
 //Fungsi Awal
 //when Click - Change - Trigerred Condition
@@ -368,3 +373,33 @@ $("#login-button").click(function(event){
 $('form').fadeOut(500);
 $('.wrapper').addClass('form-success');
 });
+
+// var mydata = 55;
+//     var myname = "syed ali";
+//     var userdata = {'id':mydata,'name':myname};
+//     $.ajax({
+//             type: "POST",
+//             url: "detail.php",
+//             data:userdata, 
+//             success: function(data){
+//                 console.log(data);
+                
+//             }
+//             });
+
+// var message = $('#input-message').val();
+// var sender= $('#sender').val();
+// var receiver= $('#receiver').val(); 
+// $.ajax({
+//     url: "halamanbeli.php", 
+//     method: "post", 
+//     //data: { "message":$('#input-message').val(),"sender":$('#sender').val(),"receiver":$('#receiver').val()},you can pass the values directly like this or else you can store it in variables and can pass
+//     data: { "message":message,"sender":sender,"receiver":receiver},
+//     success: function(data){
+//     $('#chat-body').html(data);
+//     alert("succes")
+//     },
+//       error: function() {
+//     alert('Not OKay');
+//     } 
+//     });
