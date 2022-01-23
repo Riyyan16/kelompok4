@@ -1,3 +1,14 @@
+<?php
+  require 'database.php';
+  $bring = query("SELECT * from user");
+  $data=0;
+  $data = take($bring);
+  if($data==0)
+    echo "<script>location.href='index.php' </script>";
+
+  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <title>Home Page</title>
@@ -59,9 +70,18 @@
             <div class="grid-line">
               <div style="float: left; margin-left: 25px;">
                 <b>Input</b>
-                <input type="number" id="angka" style="border-radius: 7px; margin-top: 60px;">
-                <button id="tombol" onclick="myFunction()" href="detail.php" class="button1" 
+                <input type="number" min="0" onkeypress="return (event.charCode == 8 || event.charCode == 0 || event.charCode == 13) ? 
+                null : event.charCode >= 48 && event.charCode <= 57" id="angka" style="border-radius: 7px; margin-top: 60px;">
+              
+                <form style=" display: inline;" method="post" action="check.php">
+                <input id="tanggal" type="text" name="tanggal" hidden>
+                <input id="jumlah" type="text" name="jumlah" hidden>
+                <input id="harga" type="text" name="harga" hidden>
+                <input id="koin" type="text" name="koin" hidden>
+                <!-- <button type="submit" name="submit">tes</button> -->
+                <button id="submit" name="submit" type="submit" onclick="myFunction()" href="detail.php" class="button1" 
                 style="background-color: chartreuse;"><b>&nbsp;BELI&nbsp;</b></button>
+                </form>
               </div>
             </div>
           </div>
@@ -72,11 +92,16 @@
           sed quidem? Ratione, at.</h3>
       </div>
     </div>
+    <form method="post">
+      <input id="tanggal" type="text" name="tanggal" hidden>
+      <input id="jumlah" type="text" name="jumlah" hidden>
+      <input id="harga" type="text" name="harga" hidden>
+      <input id="koin" type="text" name="koin" hidden>
+      <button type="submit" name="submit">tes</button>
+    </form>
   </center>
   
-    
-    
- 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="script.js"></script>
@@ -84,13 +109,33 @@
   var myData = localStorage['objectToPass'];
   console.log(myData)
   klikTable2(myData)
-  localStorage.removeItem( 'objectToPass' );
+  var x
+  var d = new Date(); // for now
+  d.getHours(); // => 9
+  d.getMinutes(); // =>  30
+  d.getSeconds(); // => 51
   localStorage.setItem( 'dataDetail', myData );
-
   $('#angka').on('change keyup paste',function(){
-    console.log($('#angka').val())
+    x = $('#angka').val()
+    console.log(x)
     localStorage.setItem( 'dataAngka', `${$('#angka').val()}` );
+    $.ajax({
+        url : "https://indodax.com/api/summaries",
+        success:function(data){
+          
+          $('#tanggal').val(`${d}`)
+          $('#jumlah').val(`${x} `)
+          $('#harga').val(`${data.tickers[myData].buy}`)
+          $('#koin').val(`${data.tickers[myData].name} `)
+        },
+        error:function(err){
+            alert(err)
+        }
+    })
   })
+  
+  
+
 
 </script>
 </body>

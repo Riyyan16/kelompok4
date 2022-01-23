@@ -1,3 +1,12 @@
+<?php
+   require 'database.php';
+   $bring = query("SELECT * from user");
+   $data=0;
+   $data = take($bring);
+   if($data==0)
+     echo "<script>location.href='index.php' </script>";
+  
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,6 +44,7 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
  <script>
     var myData = localStorage['dataDetail'];
     var myAngka = localStorage['dataAngka'];
@@ -42,11 +52,12 @@
     d.getHours(); // => 9
     d.getMinutes(); // =>  30
     d.getSeconds(); // => 51
-    
+    var cancel = localStorage['cancel'];
+
     $('#date').html(`<b>Date Invoice &nbsp: </b> ${d}`)
     $.ajax({
         url : "https://indodax.com/api/summaries",
-        success:function(data){ 
+        success:function(data){
             $('#judul').html(`${data.tickers[myData].name}`)
             $('#pair').html(`${myData} `)
             $('#harga').html(`Beli di Harga &nbsp: ${data.tickers[myData].buy} `)
@@ -57,7 +68,10 @@
             alert(err)
         }
     })
-    localStorage.removeItem( 'dataDetail' );
+    
+    
+    
  </script>
+ 
 </body>
 </html>
