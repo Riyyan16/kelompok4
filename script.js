@@ -90,7 +90,6 @@ function passingToPembayaran(){
   $.ajax({
     url : "https://indodax.com/api/pairs",
     success : function(data){
-      console.log(data[0].url_logo_png)
       for(var keyGambar = 0; keyGambar< data.length; keyGambar++){
         if(relasi==data[keyGambar].ticker_id)
         icon.src = data[keyGambar].url_logo_png
@@ -117,35 +116,22 @@ function sortTable(n) {
   var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
   table = document.getElementById("coins");
   switching = true;
-  //Set the sorting direction to ascending:
   dir = "asc"; 
-  /*Make a loop that will continue until
-  no switching has been done:*/
   while (switching) {
-    //start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-    /*Loop through all table rows (except the
-    first, which contains table headers):*/
     for (i = 1; i < (rows.length - 1); i++) {
-      //start by saying there should be no switching:
       shouldSwitch = false;
-      /*Get the two elements you want to compare,
-      one from current row and one from the next:*/
       x = rows[i].getElementsByTagName("TD")[n];
       y = rows[i + 1].getElementsByTagName("TD")[n];
-      /*check if the two rows should switch place,
-      based on the direction, asc or desc:*/
       if(n==0){
         if (dir == "asc") {
           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
             shouldSwitch= true;
             break;
           }
         } else if (dir == "desc") {
           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-            //if so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
           }
@@ -155,13 +141,11 @@ function sortTable(n) {
         if (dir == "asc") {
           
           if (parseFloat(x.innerHTML.slice(3,-4)) > parseFloat(y.innerHTML.slice(3,-4))) {
-            //if so, mark as a switch and break the loop:
             shouldSwitch= true;
             break;
           }
         } else if (dir == "desc") {
           if (parseFloat(x.innerHTML.slice(3,-4)) < parseFloat(y.innerHTML.slice(3,-4))) {
-            //if so, mark as a switch and break the loop:
             shouldSwitch = true;
             break;
           }
@@ -171,13 +155,11 @@ function sortTable(n) {
       if (dir == "asc") {
         
         if (parseFloat(x.innerHTML.toLowerCase()) > parseFloat(y.innerHTML.toLowerCase())) {
-          //if so, mark as a switch and break the loop:
           shouldSwitch= true;
           break;
         }
       } else if (dir == "desc") {
         if (parseFloat(x.innerHTML.toLowerCase()) < parseFloat(y.innerHTML.toLowerCase())) {
-          //if so, mark as a switch and break the loop:
           shouldSwitch = true;
           break;
         }
@@ -185,15 +167,10 @@ function sortTable(n) {
       }
     }
     if (shouldSwitch) {
-      /*If a switch has been marked, make the switch
-      and mark that a switch has been done:*/
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
-      //Each time a switch is done, increase this count by 1:
       switchcount ++;      
     } else {
-      /*If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again.*/
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
@@ -340,9 +317,8 @@ function myFunction() {
     localStorage.setItem('cancel', 'true' );
     location.href="halamanbeli.php"
   }
-  }
-//Fungsi Awal
-//when Click - Change - Trigerred Condition
+}
+
 $("#tes").on("change keyup paste", function(){
   findAPI()
 })
@@ -373,33 +349,3 @@ $("#login-button").click(function(event){
 $('form').fadeOut(500);
 $('.wrapper').addClass('form-success');
 });
-
-// var mydata = 55;
-//     var myname = "syed ali";
-//     var userdata = {'id':mydata,'name':myname};
-//     $.ajax({
-//             type: "POST",
-//             url: "detail.php",
-//             data:userdata, 
-//             success: function(data){
-//                 console.log(data);
-                
-//             }
-//             });
-
-// var message = $('#input-message').val();
-// var sender= $('#sender').val();
-// var receiver= $('#receiver').val(); 
-// $.ajax({
-//     url: "halamanbeli.php", 
-//     method: "post", 
-//     //data: { "message":$('#input-message').val(),"sender":$('#sender').val(),"receiver":$('#receiver').val()},you can pass the values directly like this or else you can store it in variables and can pass
-//     data: { "message":message,"sender":sender,"receiver":receiver},
-//     success: function(data){
-//     $('#chat-body').html(data);
-//     alert("succes")
-//     },
-//       error: function() {
-//     alert('Not OKay');
-//     } 
-//     });

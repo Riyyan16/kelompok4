@@ -16,7 +16,7 @@ if ($data == 0)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Invoice</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="w3_real.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -38,12 +38,14 @@ if ($data == 0)
 
         <div class="card">
             <div class="card-content">
-                <div class="item" style="padding-top: 40px;">
-                    <img id="icon" src="https://indodax.com/v2/logo/png/color/btc.png" style="width: 200px; height: auto;">
+                <div class="item" style="padding-top: 20px;">
+                <center>
+                <img id="icon" src="https://indodax.com/v2/logo/png/color/btc.png" style="width: 150px; height: auto;">
+                </center>
                 </div>
                 <h1 id="judul" class="namaCrpto">TKO/BIDR</h1>
                 <h5 id="pair">Lord Crypto</h5>
-                <h1 class="card-header"> Detail Pembelian</h1>
+                <h1 class="card-header"><b> Detail Pembelian </b></h1>
                 <p id="harga">Beli di Harga : </p>
                 <p id="jumlah">Jumlah Unit : </p>
                 <p id="total">Total Beli : </p>
@@ -55,6 +57,7 @@ if ($data == 0)
     <script>
         var myData = localStorage['dataDetail'];
         var myAngka = localStorage['dataAngka'];
+        var icon = document.querySelector('#icon');
         var d = new Date(); // for now
         d.getHours(); // => 9
         d.getMinutes(); // =>  30
@@ -69,9 +72,22 @@ if ($data == 0)
                 $('#harga').html(`Beli di Harga &nbsp: ${data.tickers[myData].buy} `)
                 $('#jumlah').html(`Jumlah Unit &nbsp&nbsp: ${myAngka} `)
                 $('#total').html(`Total Beli &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: ${myAngka*data.tickers[myData].buy} `)
+                
             },
             error: function(err) {
                 alert(err)
+            }
+        })
+        $.ajax({
+            url : "https://indodax.com/api/pairs",
+            success : function(data){
+                for(var keyGambar = 0; keyGambar< data.length; keyGambar++){
+                    if(myData==data[keyGambar].ticker_id)
+                    icon.src = data[keyGambar].url_logo_png
+                }
+            },
+            error : function(err){
+                alert("data gambar gagal di ambil")
             }
         })
     </script>

@@ -47,11 +47,6 @@ table th {
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial;
-  background: #f1f1f1;
-}
-
 /* Header/Blog Title */
 .header {
   padding: 30px;
@@ -150,10 +145,6 @@ body {
     height: 25px;
     border: solid 1px black;
 }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 .topnav {
   overflow: hidden;
@@ -179,7 +170,7 @@ body {
   color: white;
 }
 * {box-sizing: border-box;}
-body {font-family: Verdana, sans-serif;}
+
 .mySlides {display: none;}
 img {vertical-align: middle;}
 
