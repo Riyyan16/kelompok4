@@ -28,7 +28,7 @@
   <div style="text-align: center;">
     <img style="width: 200px; margin-top: 10px;" src="Lord.png">
     <hr>
-    <li class="w3-bar-item ">Nama: <?= $data['username'] ?></li>
+    <li class="w3-bar-item ">Username: <?= $data['username'] ?></li>
     <li class="w3-bar-item ">Email: <?= $data['email'] ?></li>
   </div>
   <hr>
@@ -39,7 +39,7 @@
 <!-- Page Content -->
 <div class="w3-teal">
   <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-  <p id="email" style="display: inline;"><?= $data['email'] ?></p>
+  <p id="email" style="display: inline;"><?= $data['username'] ?></p>
   <div class="w3-container">
     <div class="topnav">
         <a class="active" href="homepage.php">Home</a>
