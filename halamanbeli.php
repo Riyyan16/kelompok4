@@ -11,7 +11,6 @@
 <html lang="en">
 <title>Home Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3_real.css">
 <link rel="stylesheet" href="style.css">
 <head>
   <meta charset="UTF-8">
@@ -23,8 +22,6 @@
 
 <body style="margin-bottom: 5cm;">
   <!-- Sidebar -->
-  <div class="w3-teal" style="padding-top: 10px;">
-    <div class="w3-container">
       <div class="topnav">
           <a  href="homepage.php">Home</a>
           <a  href="profil.php">Profil</a>
@@ -93,7 +90,6 @@
   </center>
   
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="script.js"></script>
 <script>
   var myData = localStorage['objectToPass'];
