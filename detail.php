@@ -15,14 +15,12 @@ if ($data == 0)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Invoice</title>
-    <link rel="stylesheet" href="w3_real.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="w3-teal" style="padding-top: 10px;">
-        <div class="w3-container">
+   
             <div class="topnav">
                 <a href="homepage.php">Home</a>
                 <a href="profil.php">Profil</a>
@@ -52,7 +50,6 @@ if ($data == 0)
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://www.w3schools.com/lib/w3.js"></script>
     <script>
         var myData = localStorage['dataDetail'];
         var myAngka = localStorage['dataAngka'];
