@@ -4,9 +4,7 @@
   $data=0;
   $data = take($bring);
   if($data==0)
-    echo "<script>location.href='index.php' </script>";
-
-  
+    echo "<script>location.href='index.php' </script>";  
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +92,6 @@
     </div>
   </center>
   
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://www.w3schools.com/lib/w3.js"></script>
 <script src="script.js"></script>
