@@ -1,8 +1,8 @@
 <?php
-require 'database.php';
+require 'database.php'; 
 $bring = query("SELECT * from user");
 $data = 0;
-$data = take($bring);
+$data = take($bring); 
 if ($data == 0)
     echo "<script>location.href='index.php' </script>";
 
@@ -10,17 +10,20 @@ if ($data == 0)
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detail Invoice</title>
+    <link rel="stylesheet" href="w3_real.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-   
+    <div class="w3-teal" style="padding-top: 10px;">
+        <div class="w3-container">
             <div class="topnav">
                 <a href="homepage.php">Home</a>
                 <a href="profil.php">Profil</a>
